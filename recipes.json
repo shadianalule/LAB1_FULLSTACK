@@ -1,0 +1,105 @@
+[
+    {
+      "Title": "Classic Grilled Cheese Sandwich",
+      "Ingredients": [
+        "2 slices bread",
+        "2 slices cheddar cheese",
+        "1 tablespoon butter"
+      ],
+      "Instructions": "1. Heat a skillet over medium heat.\n2. Butter one side of each slice of bread.\n3. Place one slice of bread, butter-side down, in the skillet.\n4. Add cheese slices on top of the bread.\n5. Place the other slice of bread, butter-side up, on top of the cheese.\n6. Cook until bread is golden brown and cheese is melted, about 2-3 minutes per side.\n7. Serve hot.",
+      "Cooking Time": "5 minutes"
+    },
+    {
+      "Title": "Scrambled Eggs",
+      "Ingredients": [
+        "2 eggs",
+        "2 tablespoons milk",
+        "Salt and pepper to taste",
+        "1 tablespoon butter"
+      ],
+      "Instructions": "1. Crack eggs into a bowl, add milk, salt, and pepper. Beat until well combined.\n2. Heat butter in a skillet over medium heat.\n3. Pour egg mixture into the skillet.\n4. Cook, stirring occasionally, until eggs are set but still moist.\n5. Remove from heat and serve immediately.",
+      "Cooking Time": "5 minutes"
+    },
+    {
+      "Title": "Vegetable Stir-Fry",
+      "Ingredients": [
+        "2 cups mixed vegetables (bell peppers, broccoli, carrots, etc.), sliced",
+        "2 tablespoons soy sauce",
+        "1 tablespoon sesame oil",
+        "2 cloves garlic, minced",
+        "1 tablespoon ginger, minced",
+        "2 tablespoons vegetable oil"
+      ],
+      "Instructions": "1. Heat vegetable oil in a large skillet or wok over high heat.\n2. Add minced garlic and ginger, stir-fry for 30 seconds.\n3. Add sliced vegetables and stir-fry until tender-crisp.\n4. Pour in soy sauce and sesame oil, toss to coat.\n5. Cook for another minute, then remove from heat.\n6. Serve hot as a side dish or over rice.",
+      "Cooking Time": "10 minutes"
+    },
+    {
+      "Title": "Caprese Salad",
+      "Ingredients": [
+        "2 large tomatoes, sliced",
+        "8 ounces fresh mozzarella cheese, sliced",
+        "1/4 cup fresh basil leaves",
+        "2 tablespoons balsamic glaze",
+        "2 tablespoons extra virgin olive oil",
+        "Salt and pepper to taste"
+      ],
+      "Instructions": "1. Arrange tomato and mozzarella slices on a serving platter, alternating.\n2. Tuck basil leaves between the slices.\n3. Drizzle with balsamic glaze and olive oil.\n4. Season with salt and pepper.\n5. Serve immediately as a refreshing salad or appetizer.",
+      "Cooking Time": "5 minutes"
+    },
+    {
+      "Title": "Peanut Butter Banana Smoothie",
+      "Ingredients": [
+        "1 ripe banana",
+        "1 tablespoon peanut butter",
+        "1/2 cup milk (dairy or plant-based)",
+        "1/4 cup plain yogurt",
+        "1 tablespoon honey (optional)",
+        "1/2 cup ice cubes"
+      ],
+      "Instructions": "1. Place all ingredients in a blender.\n2. Blend until smooth and creamy.\n3. Taste and add honey if desired for extra sweetness.\n4. Pour into glasses and serve immediately.",
+      "Cooking Time": "5 minutes"
+    },
+    {
+      "Title": "Spaghetti Aglio e Olio",
+      "Ingredients": [
+        "8 ounces spaghetti",
+        "4 cloves garlic, thinly sliced",
+        "1/4 cup extra virgin olive oil",
+        "1/2 teaspoon red pepper flakes",
+        "1/4 cup chopped fresh parsley",
+        "Salt to taste"
+      ],
+      "Instructions": "1. Cook spaghetti according to package instructions until al dente. Reserve 1/2 cup of pasta water.\n2. In a large skillet, heat olive oil over medium heat. Add sliced garlic and red pepper flakes, cook until garlic is golden but not browned.\n3. Add cooked spaghetti to the skillet, along with chopped parsley. Toss to coat, adding reserved pasta water as needed to create a sauce.\n4. Season with salt to taste.\n5. Serve hot, optionally garnished with additional parsley and grated Parmesan cheese.",
+      "Cooking Time": "15 minutes"
+    },
+    {
+      "Title": "Tuna Salad Sandwich",
+      "Ingredients": [
+        "1 can (5 ounces) tuna, drained",
+        "2 tablespoons mayonnaise",
+        "1 tablespoon Dijon mustard",
+        "1/4 cup chopped celery",
+        "1/4 cup chopped red onion",
+        "Salt and pepper to taste",
+        "Lettuce leaves",
+        "4 slices bread"
+      ],
+      "Instructions": "1. In a bowl, combine tuna, mayonnaise, Dijon mustard, chopped celery, and chopped red onion.\n2. Season with salt and pepper, mix well.\n3. Place lettuce leaves on two slices of bread.\n4. Divide tuna salad mixture evenly between the two sandwiches.\n5. Top with the remaining bread slices.\n6. Cut sandwiches in half and serve.",
+      "Cooking Time": "10 minutes"
+    },
+    {
+      "Title": "Tomato Basil Bruschetta",
+      "Ingredients": [
+        "4 ripe tomatoes, diced",
+        "1/4 cup fresh basil leaves, chopped",
+        "2 cloves garlic, minced",
+        "2 tablespoons extra virgin olive oil",
+        "1 tablespoon balsamic vinegar",
+        "Salt and pepper to taste",
+        "Baguette, sliced and toasted"
+      ],
+      "Instructions": "1. In a bowl, combine diced tomatoes, chopped basil, minced garlic, olive oil, and balsamic vinegar.\n2. Season with salt and pepper, mix well.\n3. Spoon tomato mixture onto toasted baguette slices.\n4. Serve immediately as an appetizer or snack.",
+      "Cooking Time": "10 minutes"
+    }
+  ]
+  

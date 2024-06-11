@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Recipe App</title>
+  <!-- Include Custom CSS -->
+  <style>
+    body {
+      background-color: #f8f9fa;
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .container {
+      width: 80%;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    h1, h2 {
+      color: #343a40;
+      text-align: center;
+    }
+
+    .table {
+      width: 100%;
+      margin-top: 20px;
+      border-collapse: collapse;
+    }
+
+    .table th, .table td {
+      padding: 10px;
+      text-align: center;
+      border: 1px solid #dee2e6;
+    }
+
+    .table th {
+      background-color: #343a40;
+      color: white;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      color: #495057;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ced4da;
+      border-radius: 4px;
+    }
+
+    .form-control:focus {
+      border-color: #80bdff;
+      box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+      outline: none;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background-color: #007bff;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background-color: #0056b3;
+    }
+
+    .edit-btn {
+      background-color: #ffc107;
+      color: white;
+    }
+
+    .edit-btn:hover {
+      background-color: #e0a800;
+    }
+
+    .delete-btn {
+      background-color: #dc3545;
+      color: white;
+    }
+
+    .delete-btn:hover {
+      background-color: #c82333;
+    }
+
+    form {
+      margin-top: 20px;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 4px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="mt-5">The Recipe App</h1>
+    
+    <!-- Display Recipes Table -->
+    <h2 class="mt-4">All Recipes</h2>
+    <table id="recipes-table" class="table">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Ingredients</th>
+          <th>Instructions</th>
+          <th>Cooking Time</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="recipes-body">
+        <!-- Recipes will be dynamically populated here -->
+      </tbody>
+    </table>
+
+    <!-- Add New Recipe Form -->
+    <h2 class="mt-4">Add New Recipe</h2>
+    <form id="addRecipeForm" class="mb-4">
+      <div class="form-group">
+        <label for="title">Title:</label>
+        <input type="text" class="form-control" id="title" name="title" required>
+      </div>
+      <div class="form-group">
+        <label for="ingredients">Ingredients:</label>
+        <textarea class="form-control" id="ingredients" name="ingredients" rows="3" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="instructions">Instructions:</label>
+        <textarea class="form-control" id="instructions" name="instructions" rows="3" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="cookingTime">Cooking Time:</label>
+        <input type="text" class="form-control" id="cookingTime" name="cookingTime" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Add Recipe</button>
+    </form>
+
+    <!-- Edit Recipe Form -->
+    <h2 class="mt-4">Edit Recipe</h2>
+    <form id="editRecipeForm" class="mb-4">
+      <input type="hidden" id="editRecipeId" name="editRecipeId">
+      <div class="form-group">
+        <label for="editTitle">Title:</label>
+        <input type="text" class="form-control" id="editTitle" name="editTitle" required>
+      </div>
+      <div class="form-group">
+        <label for="editIngredients">Ingredients:</label>
+        <textarea class="form-control" id="editIngredients" name="editIngredients" rows="3" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="editInstructions">Instructions:</label>
+        <textarea class="form-control" id="editInstructions" name="editInstructions" rows="3" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="editCookingTime">Cooking Time:</label>
+        <input type="text" class="form-control" id="editCookingTime" name="editCookingTime" required>
+      </div>
+      <button type="button" onclick="submitEditForm()" class="btn btn-primary">Save Changes</button>
+    </form>
+  </div>
+
+  <!-- Your JavaScript code -->
+   <script>
+    // Fetch and display recipes from API
+    fetch("http://localhost:5500/api/recipes")
+      .then(response => response.json())
+      .then(data => {
+        const recipesBody = document.getElementById("recipes-body");
+        data.forEach(recipe => {
+          const row = document.createElement("tr");
+          row.innerHTML = `
+            <td>${recipe.title}</td>
+            <td>${recipe.ingredients.join(", ")}</td>
+            <td>${recipe.instructions}</td>
+            <td>${recipe.cookingTime}</td>
+            <td>
+              <button class="btn edit-btn" data-id="${recipe._id}" onclick="populateEditForm('${recipe._id}', '${recipe.title}', '${recipe.ingredients.join("\n")}', '${recipe.instructions}', '${recipe.cookingTime}')">Edit</button>
+              <button class="btn delete-btn" onclick="deleteRecipe('${recipe._id}')">Delete</button>
+            </td>
+          `;
+          recipesBody.appendChild(row);
+        });
+      })
+      .catch(error => console.error("Error fetching recipes:", error));
+
+    // Function to populate edit form with recipe details
+    function populateEditForm(id, title, ingredients, instructions, cookingTime) {
+      document.getElementById("editRecipeId").value = id;
+      document.getElementById("editTitle").value = title;
+      document.getElementById("editIngredients").value = ingredients;
+      document.getElementById("editInstructions").value = instructions;
+      document.getElementById("editCookingTime").value = cookingTime;
+    }
+
+    // Function to delete a recipe
+    function deleteRecipe(id) {
+      if (confirm("Are you sure you want to delete this recipe?")) {
+        fetch(`http://localhost:5500/api/recipes/${id}`, {
+          method: "DELETE"
+        })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error("Failed to delete recipe");
+          }
+          console.log("Recipe deleted successfully");
+          // Reload the page to update the table
+          location.reload();
+        })
+        .catch(error => console.error("Error deleting recipe:", error));
+      }
+    }
+
+    // Submit Edit Form
+    function submitEditForm() {
+      const editRecipeId = document.getElementById("editRecipeId").value;
+      const editTitle = document.getElementById("editTitle").value;
+      const editIngredients = document.getElementById("editIngredients").value.split("\n");
+      const editInstructions = document.getElementById("editInstructions").value;
+      const editCookingTime = document.getElementById("editCookingTime").value;
+
+      const editedRecipeData = {
+        title: editTitle,
+        ingredients: editIngredients,
+        instructions: editInstructions,
+        cookingTime: editCookingTime
+      };
+
+      fetch(`http://localhost:5500/api/recipes/${editRecipeId}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(editedRecipeData)
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("Failed to update recipe");
+        }
+        console.log("Recipe updated successfully");
+        // Reload the page to update the table
+        location.reload();
+      })
+      .catch(error => console.error("Error updating recipe:", error));
+    }
+
+    // Add New Recipe Form Submission
+    document.getElementById("addRecipeForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const title = document.getElementById("title").value;
+      const ingredients = document.getElementById("ingredients").value.split("\n");
+      const instructions = document.getElementById("instructions").value;
+      const cookingTime = document.getElementById("cookingTime").value;
+
+      const newRecipeData = {
+        title: title,
+        ingredients: ingredients,
+        instructions: instructions,
+        cookingTime: cookingTime
+      };
+
+      fetch("http://localhost:5500/api/recipes", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(newRecipeData)
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("Failed to add new recipe");
+        }
+        console.log("New recipe added successfully");
+        // Reload the page to update the table
+        location.reload();
+      })
+      .catch(error => console.error("Error adding new recipe:", error));
+    });
+  </script>
+ 
+</body>
+</html>
